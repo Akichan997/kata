@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :product_name, style: "display: block" %>
-    <%= form.text_field :product_name %>
+  <div class="mb-3">
+    <%= form.label :product_name, style: "display: block", class: "form-label" %>
+    <%= form.text_field :product_name, class: "form-control" %>
+  </div>
+
+  <div class="d-flex flex-row bd-highlight mb-3">
+    <div class="me-4">
+      <%= form.label :product_value, style: "display: block", class: "form-label" %>
+      <%= form.number_field :product_value, class: "form-control" %>
+    </div>
+    <div>
+      <%= form.label :currency_id, style: "display: block", class: "form-label" %>
+      <%= form.select :currency_id, Currency.pluck(:currency_symbol, :id),{}, { class: "form-select" } %>
+    </div>
   </div>
 
   <div>
-    <%= form.label :product_value, style: "display: block" %>
-    <%= form.number_field :product_value %>
-  </div>
-
-  <div>
-    <%= form.label :currency_id, style: "display: block" %>
-    <%= form.number_field :currency_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

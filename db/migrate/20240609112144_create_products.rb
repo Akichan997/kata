@@ -6,6 +6,17 @@ class CreateProducts < ActiveRecord::Migration[7.1]
       t.integer :currency_id
 
       t.timestamps
+
+      add_foreign_key :products, :currency
+    end
+  end
+
+  def change
+    create_table :currency do |t|
+      t.string "currency_title"
+      t.string "currency_symbol"
+
+      t.timestamps
     end
   end
 end

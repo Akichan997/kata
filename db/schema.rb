@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_112144) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_125648) do
+  create_table "currencies", force: :cascade do |t|
+    t.string "currency_title"
+    t.string "currency_symbol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.integer "product_value"

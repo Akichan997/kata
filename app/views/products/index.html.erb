@@ -19,9 +19,8 @@
       <th scope="row"><%= product.product_value %></th>
       <td>
         <div class="d-flex flex-row justify-content-start gap-2">
-          <%= link_to "Show", product, class: "btn btn-primary" %>
           <%= link_to "Edit", edit_product_path(product), class: "btn btn-primary" %>
-          <%= button_to "Delete", @product, method: :delete, class: "btn btn-primary" %>
+          <%= button_to "Delete", product, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
         </div>
       <td>
     </tr>
@@ -29,4 +28,4 @@
   </tbody>
 </table>
 
-<%= link_to "New product", new_product_path %>
+<%= link_to "New product", new_product_path, class: "btn btn-primary" %>
